@@ -1,28 +1,33 @@
-create table product(
-        productId int PRIMARY KEY,
-        productName varchar(255),
-        description varchar(255),
-        price int,
-        quantityInStock int,
-        type varchar(255));
-
-create table electronics(
-        productId INT PRIMARY KEY,
-        brand varchar(255),
-		warrantyPeriod int,
-		FOREIGN KEY (productID) REFERENCES product(productID)
+CREATE TABLE Products (
+    productId INT PRIMARY KEY,
+    productName NVARCHAR(255),
+    description NVARCHAR(MAX),
+    price FLOAT,
+    quantityInStock INT,
+    type NVARCHAR(50)
 );
 
-create table clothing(
-        productId INT PRIMARY KEY,
-        size varchar(255),
-        color varchar(255),
-	    FOREIGN KEY (productID) REFERENCES product(productID)
+CREATE TABLE Users (
+    userId INT PRIMARY KEY,
+    username NVARCHAR(255),
+    password NVARCHAR(255),
+    role NVARCHAR(50) CHECK (role IN ('Admin', 'User'))
 );
 
-create table [user](
-        userId int,
-        username varchar(255),
-        password varchar(255),
-        role varchar(255)
+CREATE TABLE [Order] (
+    OrderId INT IDENTITY(1,1) PRIMARY KEY,
+    UserId INT,
+    FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
+
+
+-- Create OrderProduct table to represent the many-to-many relationship between Order and Product
+
+CREATE TABLE OrderProduct (
+    OrderId INT,
+    ProductId INT,
+    Quantity INT,
+    PRIMARY KEY (OrderId, ProductId),
+    FOREIGN KEY (OrderId) REFERENCES [Order](OrderId),
+    FOREIGN KEY (ProductId) REFERENCES Products(ProductId)
 );

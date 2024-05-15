@@ -6,45 +6,40 @@ class Product:
         self.price = price
         self.quantityInStock = quantityInStock
         self.type = type
-    
-    
-    # Getters
+
+    # Getters and setters
     def getProductId(self):
-        return self.__productId
+        return self.productId
+
+    def setProductId(self, productId):
+        self.productId = productId
 
     def getProductName(self):
-        return self.__productName
-
-    def getDescription(self):
-        return self.__description
-
-    def getPrice(self):
-        return self.__price
-
-    def getQuantityInStock(self):
-        return self.__quantityInStock
-
-    def getType(self):
-        return self.__type
-
-    # Setters
-    def setProductId(self, productId):
-        self.__productId = productId
+        return self.productName
 
     def setProductName(self, productName):
-        self.__productName = productName
+        self.productName = productName
+
+    def getDescription(self):
+        return self.description
 
     def setDescription(self, description):
-        self.__description = description
+        self.description = description
+
+    def getPrice(self):
+        return self.price
 
     def setPrice(self, price):
-        self.__price = price
+        self.price = price
+
+    def getQuantityInStock(self):
+        return self.quantityInStock
 
     def setQuantityInStock(self, quantityInStock):
-        self.__quantityInStock = quantityInStock
+        self.quantityInStock = quantityInStock
+
+    def getType(self):
+        return self.type
 
     def setType(self, type):
-        self.__type = type
-    
-
-
+        self.type = type

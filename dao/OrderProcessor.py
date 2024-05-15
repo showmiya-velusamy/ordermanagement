@@ -2,7 +2,7 @@ from .IOrderManagementRepository import IOrderManagementRepository
 from exception.UserNotFound import UserNotFound
 from exception.OrderNotFound import OrderNotFound
 from util.DBConnUtil import DBConnUtil
-from entity.User import User
+from Entity.User import User
 
 class OrderProcessor(IOrderManagementRepository):
     def createOrder(self, user, products):

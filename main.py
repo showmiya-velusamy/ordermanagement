@@ -1,21 +1,20 @@
-
 from dao.OrderProcessor import OrderProcessor
-from entity.Product import Product
-from entity.User import User
+from Entity.Product import Product
+from Entity.User import User
 from exception import UserNotFound, OrderNotFound
 class OrderManagement:
     def __init__(self):
         self.orderProcessor = OrderProcessor()
 
     def display_menu(self):
-        print("\nOrder Management System")
-        print("1. Create User")
-        print("2. Create Product")
-        print("3. Create Order")
-        print("4. Cancel Order")
+        print("\n Welcome to Order Management System🛒")
+        print("1. Create  New User👩")
+        print("2. Create New  Product🛵")
+        print("3. Create Order 👔")
+        print("4. Cancel Order ❌")
         print("5. Get All Products")
         print("6. Get Orders by User")
-        print("7. Exit")
+        print("7. Exit ❗")
 
     def create_user(self):
         userId = int(input("Enter User ID: "))
@@ -58,7 +57,7 @@ class OrderManagement:
         except OrderNotFound as e:
             print("Order not found:", e)
         except Exception as e:
-            print("An error occurred:", e)
+            print("Oops error occured: ", e)
 
     def get_all_products(self):
         products = self.orderProcessor.getAllProducts()
@@ -96,10 +95,10 @@ class OrderManagement:
             elif choice == "6":
                 self.get_orders_by_user()
             elif choice == "7":
-                print("Exiting...")
+                print("Exited Visit Again🎇")
                 break
             else:
-                print("Invalid choice. Please try again.")
+                print("Invalid choice❌")
 
 if __name__ == "__main__":
     orderManagement = OrderManagement()
